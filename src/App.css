@@ -4,21 +4,48 @@
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 50px;
   pointer-events: none;
 }
-
+a{
+  color: rgba(255, 255, 255, 0.65);
+  text-underline: none;
+}
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
+  overflow: hidden;
 }
-
+.App-header span{
+  cursor: pointer;
+}
+.head-img-box{
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.view-box{
+  min-height: calc(100% - 70px);
+}
+.main{
+  display: flex;
+  flex-flow: row nowrap;
+  height: 90vh;
+}
+.App-header .header-center{
+  padding: 0 3vmin;
+  margin: 0;
+  flex-grow: 2;
+  text-align: left;
+  cursor: pointer;
+}
 .App-link {
   color: #61dafb;
 }

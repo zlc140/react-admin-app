@@ -1,28 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Switch,Route,withRouter } from 'react-router-dom';
 import './App.css';
 
+
+import asyncComponent from "./router/asyncComponent";
+const Login = asyncComponent(() => import('./page/Login'));
+const HomeLayout = asyncComponent(() => import('./page/Layout'));
+
 class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			title: '首页'
+		}
+	}
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+	    <Switch>
+		    <Route exact path='/login' component={Login} />
+		    <Route  path='/' component={HomeLayout} />
+	    </Switch>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
