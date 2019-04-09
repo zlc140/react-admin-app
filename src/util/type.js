@@ -128,8 +128,8 @@ function equals(o1, o2) {
     }
     return false;
 };
-
-module.exports = {
+// module.exports
+export default  {
     isType:isType,
     isObject: function (data) {
         return data instanceof Object;

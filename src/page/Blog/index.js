@@ -26,7 +26,6 @@ export default class Home extends Component {
 			pageDes: '',
 			date: new Date()
 		}
-		console.log(this)
 	}
 	toggleTheme = () => {
 		this.setState(state => ({

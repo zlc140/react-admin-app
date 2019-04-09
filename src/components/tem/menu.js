@@ -36,8 +36,9 @@ const sidebarMenu = [
 	},
 	{
 		key: 'alone',
-		name: '我没有子菜单',
+		name: '我的',
 		icon: 'clock-circle',
+		url: '/home'
 	},
 	{
 		key: 'alone2',
@@ -49,7 +50,8 @@ const sidebarMenu = [
 		child: [
 			{
 				key: 'nesnesnes',
-				name: 'N64',
+				name: '博客',
+				url: '/blog'
 			},
 		],
 	},
@@ -69,8 +71,9 @@ const sidebarMenu = [
 				child: [
 					{
 						key: '666',
-						name: '选项6',
+						name: 'Todo组件',
 						icon: 'check',
+						url: '/todo'
 					},
 					{
 						key: '777',

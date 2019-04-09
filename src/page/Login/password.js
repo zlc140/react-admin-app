@@ -1,23 +1,45 @@
 import  React, { Component } from 'react';
 // import {  Redirect } from 'react-router-dom';
 import { Form, Icon, Input, Button } from 'antd';
+import $service from '@service/index'
+
 class NomalLoginForm extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
 			if(!err) {
-				//登录请求
-				this.props.loginSubmit(values)
-				//跳转
-				setTimeout(() => {
-					this.props.redirectPath();
+				
+				let prop = {
+					accoutNo: values.username,
+					password: values.password
+				}
+				$service({
+					url:'/user/users/login/password',
+					type: 'formdata',
+					isToken: false,
+					data: prop
+				}).then(res => {
+					console.log(res)
+					//登录成功
+					res.data.token && this.props.loginSubmit(res.data.user)
+					sessionStorage.setItem('token',res.data.token)
+					//跳转
+					setTimeout(() => {
+						this.props.redirectPath();
+					})
+				}).catch(err => {
+					console.log(err,'e')
 				})
+				
+				
+				
+				
 			}
 		})
 	}
 	vallidatorMobile = (rule, value, callback) =>{
 		const exp = /^1[3-9]\d{9}$/;
-		if(!exp.test(value)){
+		if(!exp.test(value) && value != 'admin'){
 			callback('请输入正确的手机号')
 		}
 		callback();
@@ -34,7 +56,7 @@ class NomalLoginForm extends Component {
 		return (
 			<Form className="login-form" onSubmit={this.handleSubmit}>
 				<Form.Item>
-					{getFieldDecorator('userName', {
+					{getFieldDecorator('username', {
 						rules: [{ required: true, message: '手机号必填' },
 							{validator: this.vallidatorMobile}]
 						})(

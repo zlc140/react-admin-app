@@ -12,10 +12,16 @@ import "antd/dist/antd.css";
 import Router from './App';
 
 import * as serviceWorker from './serviceWorker';
+//
+import Mock from './mock'
+Mock.bootstrap()
+
+
 
 const store = createStore(rootReducer)
 
 // ReactDOM.render(<App />, document.getElementById('root'));
+
 
 ReactDOM.render(
 	<BrowserRouter>

@@ -37,7 +37,7 @@ export default class userTem extends Component {
 		const { userInfo } = this.props
 		const menu = (
 			<Menu>
-				<Menu.Item key='1'><span>{userInfo && userInfo.userName}</span></Menu.Item>
+				<Menu.Item key='1'><span>{userInfo && userInfo.username}</span></Menu.Item>
 				<Menu.Item key='2'><span onClick={this.loginOut}>退出登录</span></Menu.Item>
 			</Menu>
 		)

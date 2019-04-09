@@ -23,7 +23,7 @@ class App extends Component {
 	initPage() {
 		notification.open({
 			message: 'Welcome',
-			description: `${this.props.userInfo.userName},欢迎您回来`,
+			description: `${this.props.userInfo.username},欢迎您回来`,
 			icon: <Icon type="smile" style={{ color: '#108ee9' }} />
 		})
 	}

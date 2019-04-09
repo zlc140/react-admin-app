@@ -2,12 +2,14 @@ import  React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // import { Redirect } from 'react-router-dom';
+
 import { loginInfo } from '@store/actions'
 import BGParticle from '../../util/BGPartcle';
 import { Card } from 'antd';
 import './index.less';
 import Message from './message';
-import Password from './password'
+import Password from './password';
+
 const url = 'https://github.com/zhangZhiHao1996/image-store/blob/master/react-admin-master/bg1.jpg?raw=true'
 
 const tabList = [ {
@@ -39,7 +41,7 @@ class Login extends Component {
 		this.setState({
 			loading: true
 		})
-		
+		this.redirectPath()
 		this.loadImageAsync(url).then((url) => {
 			this.setState({
 				loading: false,
@@ -53,7 +55,7 @@ class Login extends Component {
 	}
 	redirectPath = () => {
 		const { islogin, history, location } = this.props;
-		console.log(islogin)
+		
 		if(islogin){
 			const PATH = location.state ? location.state.from.pathname : '/'
 			history.push(PATH)
@@ -113,6 +115,7 @@ const style = {
 }
 
 const mapStateToProps = (state) => {
+	console.log(state)
 	const islogin = state.userInfo ? true : false;
 	return {
 		islogin : islogin

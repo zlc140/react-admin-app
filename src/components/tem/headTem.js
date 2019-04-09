@@ -13,7 +13,12 @@ export default class Header extends Component {
 	
 	render() {
 		
-		const { collaped , userInfo, loginOut } = this.props
+		const { collaped , userInfo, loginOut, islogin } = this.props
+		
+		if(!islogin){
+			window.location.href = window.location.origin + '/login'
+		}
+		
 		return (
 			<header className="App-header">
 				<div className={'head-img-box'} style={{width: collaped ? '80px': '200px'}}>

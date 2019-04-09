@@ -8,13 +8,21 @@ const { SubMenu } = Menu;
 // withRouter
 
 export default class Home extends Component {
+	constructor(props){
+		super(props)
+		this.state = {
+			menus: null
+		}
+	}
 	transformMenuItem(obj, paths, isLevel1) {
 		// const parentPath = paths.join('/')
 		return (
 			<Menu.Item key={obj.key}>
 				{obj.icon && <Icon type={obj.icon} />}
 				{isLevel1 && !obj.icon && <span className="invisible-nav-text">{obj.name[0]}</span>}
-				<span className="nav-text">{obj.name}</span>
+				<span className="nav-text">
+					{obj.url ? <Link to={obj.url}> {obj.name}</Link> : obj.name}
+				</span>
 			</Menu.Item>
 		)
 	}
@@ -59,7 +67,11 @@ export default class Home extends Component {
 				return tmp
 			}
 		})
-		this.menus = menus;
+		// this.menus = menus;
+		// console.log(this.menus)
+		this.setState({
+			menus: menus
+		})
 	}
 	render() {
 		return (
@@ -71,31 +83,7 @@ export default class Home extends Component {
 					 // defaultOpenKeys={['sub1']}
 					 style={{lineHeight: '64px'}}
 				 >
-					 {this.menus}
-					 {/*<SubMenu key="sub1" title={<span><Icon type="ordered-list" /><span>基础组件</span></span>}>*/}
-						 {/*<Menu.Item key='1'>*/}
-							 {/*<span><Icon type="pic-center" /><Link to='home'>Home</Link></span>*/}
-						 {/*</Menu.Item>*/}
-						 {/*<Menu.Item key='2'>*/}
-							 {/*<span><Icon type="box-plot" /><Link to='blog'>Blog</Link></span>*/}
-						 {/*</Menu.Item>*/}
-					 {/*</SubMenu>*/}
-					 {/*<SubMenu key="sub2" title={<span><Icon type="deployment-unit" /><span>From表单</span></span>}>*/}
-						 {/*<Menu.Item key='3'>*/}
-							 {/*<span><Icon type="pic-center" /><Link to='home'>Home</Link></span>*/}
-						 {/*</Menu.Item>*/}
-						 {/*<Menu.Item key='4'>*/}
-							 {/*<span><Icon type="box-plot" /><Link to='blog'>Blog</Link></span>*/}
-						 {/*</Menu.Item>*/}
-					 {/*</SubMenu>*/}
-					 {/*<SubMenu key="sub3" title={<span><Icon type="global" /><span>复杂组件</span></span>}>*/}
-						 {/*<Menu.Item key='5'>*/}
-							 {/*<span><Icon type="pic-center" /><Link to='home'>Home</Link></span>*/}
-						 {/*</Menu.Item>*/}
-						 {/*<Menu.Item key='6'>*/}
-							 {/*<span><Icon type="box-plot" /><Link to='blog'>Blog</Link></span>*/}
-						 {/*</Menu.Item>*/}
-					 {/*</SubMenu>*/}
+					 {this.state.menus}
 				 </Menu>
 			</div>
 		)

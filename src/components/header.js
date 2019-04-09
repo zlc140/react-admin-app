@@ -5,8 +5,10 @@ import headTem from './tem/headTem'
 
 //mapStateToProps 必须是个函数，绑定state上指定的值到props上，必须返回一个纯对象
 const mapStateToProps = (state) => {
+	const islogin = state.userInfo ? true : false;
 	return {
-		collaped : state.collaped
+		collaped : state.collaped,
+		islogin: islogin
 	}
 }
 //mapDispatchToProps 可是function也可是object,作用是绑定action上的函数到props上
