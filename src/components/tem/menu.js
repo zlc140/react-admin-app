@@ -29,8 +29,9 @@ const sidebarMenu = [
 			},
 			{
 				key: 'option3',
-				name: '自定义操作',
+				name: '富文本编辑器',
 				icon: 'bulb',
+				url: '/article'
 			},
 		],
 	},

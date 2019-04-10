@@ -8,6 +8,7 @@ import PrivateRoute from './privateRoute'
 const Home = asyncComponent(() => import('../page/Home'));
 const Blog = asyncComponent(() => import('../page/Blog'));
 const Todo = asyncComponent(() => import('../page/Todo'));
+const Article = asyncComponent(() => import('../page/Article'));
 
 
 export default class Router extends React.Component {
@@ -19,6 +20,7 @@ export default class Router extends React.Component {
 					<PrivateRoute exact path='/home' component={Home} />
 					<PrivateRoute exact path='/blog' component={Blog} />
 					<PrivateRoute exact path='/todo' component={Todo} />
+					<PrivateRoute exact path='/article' component={Article} />
 					<PrivateRoute exact path='/' component={Home} />
 				</Switch>
 		 

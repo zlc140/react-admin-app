@@ -14,6 +14,11 @@ export const toggleTodo = id => ({
 	type: 'TOGGLE_TODO',
 	id
 })
+//切换语言
+export const toggleLanguages = key => ({
+	type: 'TOGGLE_LANGUAGES',
+	key
+})
 
 export const loginInfo = info => ({
 	type: 'SET_USER_INFO',

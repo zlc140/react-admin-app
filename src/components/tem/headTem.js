@@ -2,6 +2,7 @@ import  React, { Component } from 'react'
 import logo from '../../logo.svg';
 import { Icon } from 'antd';
 import  UserInfo  from './userInfo';
+import SelectLang from '../selectLang';
 
 export default class Header extends Component {
 	constructor(props) {
@@ -13,7 +14,7 @@ export default class Header extends Component {
 	
 	render() {
 		
-		const { collaped , userInfo, loginOut, islogin } = this.props
+		const { collaped , userInfo, loginOut, islogin, languages, toggleLanguages } = this.props
 		
 		if(!islogin){
 			window.location.href = window.location.origin + '/login'
@@ -31,8 +32,9 @@ export default class Header extends Component {
 						onClick={this.toggle}
 					/>
 				</div>
-				<div className={'header-right'} style={{marginRight: '30px'}}>
+				<div className={'header-right'} style={{marginRight: '30px',display: 'flex',flexFlow: 'row nowrap',alignItems: 'center'}}>
 					<UserInfo userInfo={userInfo} loginOut={loginOut}/>
+					<SelectLang languages={languages} toggleLanguages={toggleLanguages}/>
 				</div>
 			</header>
 		)
