@@ -10,4 +10,38 @@
     background: rgba(255,255,255,.3);
     z-index: 999;
   }
+  .form-item{
+    position: relative;
+    margin-bottom: 24px;
+    line-height: 40px;
+    input{
+      box-sizing: border-box;
+      font-variant: tabular-nums;
+      list-style: none;
+      -webkit-font-feature-settings: 'tnum';
+      font-feature-settings: 'tnum', "tnum";
+      display: inline-block;
+      width: 100%;
+      height: 32px;
+      padding: 4px 11px;
+      color: rgba(0, 0, 0, 0.65);
+      font-size: 14px;
+      line-height: 1.5;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #d9d9d9;
+      border-radius: 4px;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+    }
+    input.has-icon{
+      padding-left: 30px;
+    }
+    .anticon{
+      position: absolute;
+      top: 50%;
+      left: 12px;
+      transform:  translateY(-50%);
+    }
+  }
 }

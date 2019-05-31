@@ -16,8 +16,6 @@ import * as serviceWorker from './serviceWorker';
 import Mock from './mock'
 Mock.bootstrap()
 
-
-
 const store = createStore(rootReducer)
 
 // ReactDOM.render(<App />, document.getElementById('root'));

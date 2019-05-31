@@ -15,9 +15,9 @@ const locales = {
 };
 
 class FormattedMessage extends Component {
-	
+
 	state = {initDone: false}
-	
+
 	componentDidMount() {
 		this.loadLocales();
 	}
@@ -40,9 +40,15 @@ class FormattedMessage extends Component {
 	componentDidUpdate() {
 		this.loadLocales()
 	}
+	componentWillUnmount() {
+		this.setState = (state, callback) => {
+			return
+		}
+	}
+
 	render() {
 		let id = this.props.id;
-		
+
 		return (
 			this.state.initDone &&
 			<span>
@@ -50,7 +56,7 @@ class FormattedMessage extends Component {
 			</span>
 		);
 	}
-	
+
 }
 
 export default connect((state) => ({languages: state.languages}))(FormattedMessage)

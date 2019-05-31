@@ -29,7 +29,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
 	response => {
 		if(response.data.code == 2){
-		
+
 		}
 		return response;
 	},
@@ -53,7 +53,7 @@ function sortBy(a, b) {
 
 export default function request(config){
 	const options = {}
-	
+
 	if(typeof config === 'string' && API[config]){
 		options.url = API[config] ? API[config].url : config;
 		options.type = API[config] ? API[config].type : 'get';
@@ -66,8 +66,14 @@ export default function request(config){
 		options.params = config.params || {};
 		options.header = config.header ? config.header : null
 		options.isToken = (config.isToken||config.isToken === undefined) ? true : false;
+	}else if(typeof config === 'string' && !API[config]) {
+		options.url = config;
+		options.type = 'get';
+		options.data = {};
+		options.header = null;
+		options.isToken = false;
 	}
-	
+
 	//
 	let keyLists = [];
 	let str = ''
@@ -85,14 +91,14 @@ export default function request(config){
 	str += 'B727A792521E373FA6D7F1F331B77EBC';
 	let md5SendData = MD5(str);
 	instance.defaults.headers.common['signValue'] = md5SendData;
-	
+
 	options.type = options.type.toUpperCase();
 	//get合并data和url
 	if(options.type == 'get' && options.params) {
 		options.url = Url.computedUrl(options.url, options.params)
 	}
 	//判断token
-	
+
 	if((options.isToken === undefined || options.isToken === true) && !TOKEN){ //登录之后没有token或没有登录，登录失效
 		 console.log('请重新登录')
 		 window.location.href = window.location.origin + '/login'
@@ -100,17 +106,17 @@ export default function request(config){
 		instance.defaults.headers.common['sessionId'] = TOKEN;
 	}
 	let type = options.type;
-	
+
 	const requestData = {
 		url: options.url
 	}
-	
+
 	switch (type) {
 		case 'POST':
 		case 'PATCH':
 			instance.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 			requestData.data = options.data;
-			
+
 			break;
 		case 'FORM':
 			instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8'
@@ -142,5 +148,5 @@ export default function request(config){
 			reject(err)
 		})
 	})
- 
+
 }

@@ -35,7 +35,12 @@ class Article extends Component {
 		})
 	}
 	handSubmit = () => {
+		let { history } = this.props;
+		if(history) {
+			history.push('/article/props')
+		}
 		console.log(this.state.smde.value())
+
 	}
 	render() {
 		return (

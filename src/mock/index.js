@@ -20,14 +20,17 @@ let _summary = {
 export default {
 	bootstrap() {
 		let mock = new mockAdapter(axios)
-		
+
 		mock.onGet('/success').reply(200, {
 			msg:'success'
 		})
 		mock.onGet('/error').reply(500, {
 			msg: 'error'
 		})
-		
+		//
+		mock.onGet('user/getCode').reply(200, {
+			msg:'success'
+		})
 		// 登录
 		mock.onPost('/user/users/login/password').reply(config => {
 			console.log(config)
@@ -67,7 +70,7 @@ export default {
 				},1000)
 			})
 		})
-	 
-		
+
+
 	}
 }

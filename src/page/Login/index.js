@@ -30,10 +30,10 @@ class Login extends Component {
 		this.state = {
 			url: '',
 			loading: false,
-			activeTab: 'password'
+			activeTab: 'message'
 		}
 	}
-	
+
 	componentDidMount() {
 		this.initPage()
 	}
@@ -51,11 +51,11 @@ class Login extends Component {
 			this.particle = new BGParticle('backgroundBox')
 			this.particle.init()
 		})
-		
+
 	}
 	redirectPath = () => {
 		const { islogin, history, location } = this.props;
-		
+
 		if(islogin){
 			const PATH = location.state ? location.state.from.pathname : '/'
 			history.push(PATH)
@@ -82,7 +82,7 @@ class Login extends Component {
 	render() {
 			return (
 				<div className='login-container' id='backgroundBox' style={style.backgroundBox}>
-					
+
 					<Card
 						className={'container'}
 						style={{width: '300px'}}
@@ -93,11 +93,11 @@ class Login extends Component {
 						{this.state.activeTab === 'message'
 							? <Message {...this.props} redirectPath={this.redirectPath.bind(this)}/>
 							: <Password {...this.props} redirectPath={this.redirectPath.bind(this)}/>}
-						
+
 					</Card>
 				</div>
 			)
-	 
+
 	}
 }
 const style = {
@@ -126,7 +126,7 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		loginSubmit: (val) => dispatch(loginInfo(val))
 	}
-	
+
 }
 export default connect(
 	mapStateToProps,

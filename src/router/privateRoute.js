@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 const isLogin = sessionStorage.getItem('userInfo')
 
 const PrivateRoute = ({component: Component, ...rest}) => (
+
 	<Route {...rest} render={(props) => (
 		!!isLogin
 			? <Component {...props} />
