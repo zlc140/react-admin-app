@@ -24,7 +24,7 @@ export default class Router extends React.Component {
 				<Switch>
 					<PrivateRoute exact path='/home' component={asyncComponent(() => import('..'+'/page/Home'))} />
 					<PrivateRoute exact path='/blog' component={asyncComponent(() => import('..'+'/page/Blog'))} />
-					{/*<PrivateRoute exact path='/todo' component={Todo} />*/}
+					<PrivateRoute exact path='/todo' component={Todo} />
 					<PrivateRoute exact path='/article' component={Article} />
 					<PrivateRoute exact path='/article/props' component={RenderProp} />
 					<PrivateRoute exact path='/' component={asyncComponent(() => import('..'+'/page/Home'))} />
