@@ -30,14 +30,19 @@ class Login extends Component {
 		this.state = {
 			url: '',
 			loading: false,
-			activeTab: 'message'
+			activeTab: 'password'
 		}
 	}
 
 	componentDidMount() {
 		this.initPage()
 	}
+	componentWillUnmount() {
+		this.particle.destory()
+	}
+
 	initPage = () => {
+		console.log(this.props)
 		this.setState({
 			loading: true
 		})
@@ -58,8 +63,8 @@ class Login extends Component {
 
 		if(islogin){
 			const PATH = location.state ? location.state.from.pathname : '/'
-			history.push(PATH)
-			return;
+			console.log(location,'location',PATH)
+			history.push('/')
 		}
 	}
 	onTabChange = (key, type) => {

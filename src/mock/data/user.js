@@ -28,9 +28,9 @@ const userList = [
 	{
 		memberId: Mock.mock('@id'),
 		username: 'admin',
-		password: '123456',
+		password: '1234',
 		nickname: '张某某',
-		'phone':Mock.mock(/^[1][358][0-9]{9}$/),
+		'phone': 18321698769,
 		eMail:Mock.mock('@email()'),
 		'iDCardNo': Mock.mock('@integer(1, 9999)'),
 		iDCardPic:Mock.mock('@image("300x300","#ccc","机构图片")'),

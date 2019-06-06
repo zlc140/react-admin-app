@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => {
 		toggleLanguages: (val) => dispatch(toggleLanguages(val)),
 		loginOut: (val) => dispatch(loginOut(val))
 	}
-	
+
 }
 
 export default connect(

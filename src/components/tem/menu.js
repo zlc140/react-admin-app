@@ -1,11 +1,36 @@
+
+import { routeConf, hasPower } from '@/router/routeConf';
+
+let id = 1;
 /**
- * 定义sidebar和header中的菜单项
  *
- * 一些约定:
- * 1.菜单最多3层;
- * 2.只有"叶子"节点才能跳转;
- * 3.所有的key都不能重复;
+ * @param routeConf 前端路由列表
+ * @param basePath  整合路由（用来跳转的完整路由）
+ * menu列表：isMenu,item.name,后端接口放回的列表是否存在
+ * @returns {*}  菜单
  */
+const getMenus = ( routeConf, basePath = '' ) => {
+
+		let routerLists = routeConf.reduce((all, item) => {
+	 	if(	!item.hasOwnProperty('isMenu') || item.isMenu === true) {
+			let conf = Object.assign({}, item)
+			conf.path = basePath + item.path;
+			conf.key = id++;
+			if( conf.children ) {
+				conf.child = getMenus( conf.children, conf.path )
+				delete conf.children;
+			}
+			if(conf.name && hasPower(conf)) {
+				all.push( conf );
+			}
+
+		}
+		return all;
+
+	}, [])
+	return routerLists;
+}
+export default getMenus( routeConf )
 
 // 其实理论上可以嵌套更多层菜单的, 但是我觉得超过3层就不好看了
 // 可用的图标见这里: https://ant.design/components/icon-cn/
@@ -13,7 +38,7 @@
 // 定义siderbar菜单
 const sidebarMenu = [
 	{
-		key: 'index',  // route时url中的值
+		key: 'index.jsx',  // route时path中的值
 		name: '基础组件',  // 在菜单中显示的名称
 		icon: 'smile',  // 图标是可选的
 		child: [
@@ -31,7 +56,7 @@ const sidebarMenu = [
 				key: 'option3',
 				name: '富文本编辑器',
 				icon: 'bulb',
-				url: '/article'
+				path: '/article'
 			},
 		],
 	},
@@ -39,7 +64,7 @@ const sidebarMenu = [
 		key: 'alone',
 		name: '我的',
 		icon: 'clock-circle',
-		url: '/home'
+		path: '/home'
 	},
 	{
 		key: 'alone2',
@@ -52,7 +77,7 @@ const sidebarMenu = [
 			{
 				key: 'nesnesnes',
 				name: '博客',
-				url: '/blog'
+				path: '/blog'
 			},
 		],
 	},
@@ -74,7 +99,7 @@ const sidebarMenu = [
 						key: '666',
 						name: 'Todo组件',
 						icon: 'check',
-						url: '/todo'
+						path: '/todo'
 					},
 					{
 						key: '777',
@@ -136,7 +161,7 @@ const sidebarMenu = [
 	},
 ];
 
-export default sidebarMenu;
+
 
 // 定义header菜单, 格式和sidebar是一样的
 // 特殊的地方在于, 我规定header的最右侧必须是用户相关操作的菜单, 所以定义了一个特殊的key
@@ -150,9 +175,9 @@ export const headerMenu = [
 				key: 'modifyUser',
 				name: '修改用户信息',
 				icon: 'bulb',
-				// 对于headerMenu的菜单项, 可以让它跳到外部地址, 如果设置了url属性, 就会打开一个新窗口
-				// 如果不设置url属性, 行为和sidebarMenu是一样的, 激活特定的组件, 注意在index.js中配置好路由, 否则会404
-				url: 'http://jxy.me',
+				// 对于headerMenu的菜单项, 可以让它跳到外部地址, 如果设置了path属性, 就会打开一个新窗口
+				// 如果不设置path属性, 行为和sidebarMenu是一样的, 激活特定的组件, 注意在index.js中配置好路由, 否则会404
+				path: 'http://jxy.me',
 			},
 			{
 				key: 'user222',
@@ -171,7 +196,7 @@ export const headerMenu = [
 					{
 						key: 'user333bbb',
 						name: 'user333bbb',
-						url: 'http://jxy.me',
+						path: 'http://jxy.me',
 					},
 				],
 			},
@@ -186,18 +211,18 @@ export const headerMenu = [
 				key: 'headerMenu111',
 				name: '菜单项1',
 				icon: 'windows',
-				url: 'http://jxy.me',
+				path: 'http://jxy.me',
 			},
 			{
 				key: '菜单项2',
 				name: '短信表管理',
-				url: 'http://jxy.me',
+				path: 'http://jxy.me',
 			},
 			{
 				key: '菜单项3',
 				name: '选项3',
 				icon: 'chrome',
-				url: 'http://jxy.me',
+				path: 'http://jxy.me',
 			},
 		],
 	},
@@ -205,7 +230,7 @@ export const headerMenu = [
 		key: 'headerMenu3',
 		name: '我没有子菜单',
 		icon: 'setting',
-		url: 'http://jxy.me',
+		path: 'http://jxy.me',
 	},
 	{
 		key: 'headerMenu4',

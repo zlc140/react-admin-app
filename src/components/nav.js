@@ -4,6 +4,7 @@ import { Menu,Icon } from 'antd';
 import './nav.less'
 import sidebarMenu from './tem/menu'
 
+
 const { SubMenu } = Menu;
 // withRouter
 
@@ -21,12 +22,12 @@ export default class Home extends Component {
 				{obj.icon && <Icon type={obj.icon} />}
 				{isLevel1 && !obj.icon && <span className="invisible-nav-text">{obj.name[0]}</span>}
 				<span className="nav-text">
-					{obj.url ? <Link to={obj.url}> {obj.name}</Link> : obj.name}
+					{obj.path ? <Link to={obj.path}> {obj.name}</Link> : obj.name}
 				</span>
 			</Menu.Item>
 		)
 	}
-	
+
 	componentDidMount() {
 		const menus = sidebarMenu.map(level1 => {
 			//是否有子菜单
@@ -50,12 +51,15 @@ export default class Home extends Component {
 				})
 				let level1Title;
 				if(level1.icon) {
-					level1Title = <span><Icon type={level1.icon} />{level1.name}</span>
+					level1Title = 	<span>
+										<Icon type={level1.icon} />
+										<span className="nav-text">{level1.name}</span>
+					 				</span>
 				}else {
 					level1Title = <span>
-								<span className="invisible-nav-text">{level1.name[0]}</span>
-								<span className="nav-text">{level1.name}</span>
-							</span>
+									<span className="invisible-nav-text">{level1.name[0]}</span>
+									<span className="nav-text">{level1.name}</span>
+								</span>
 				}
 				return (
 					<SubMenu key={level1.key} title={level1Title}>

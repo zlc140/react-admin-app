@@ -1,4 +1,4 @@
-export default {
+module.exports = {
 	'navBar.lang': '语言',
 	'lang.simplified-chinese': '简体中文',
 	'lang.traditional-chinese': '繁体中文',

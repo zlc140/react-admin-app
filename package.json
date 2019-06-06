@@ -68,6 +68,7 @@
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "resolve": "1.10.0",
     "sass-loader": "7.1.0",
     "simplemde": "^1.11.2",
@@ -140,7 +141,8 @@
   },
   "devDependencies": {
     "axios-mock-adapter": "^1.16.0",
-    "mockjs": "^1.0.1-beta3"
+    "mockjs": "^1.0.1-beta3",
+    "redux-logger": "^3.0.6"
   },
   "proxy": "http://mobile.tesm.lovego.xin/lovego"
 }

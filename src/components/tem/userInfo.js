@@ -21,17 +21,17 @@ export default class userTem extends Component {
 			hello: false
 		}
 	}
-	
+
 	handleClick(){
 		//点击时找不到this,1.bind； 2，handClick改成箭头函数
 		this.setState(preState => ({
 			hello: !preState.hello
 		}))
-		
+
 	}
 	loginOut = () => {
 		this.props.loginOut(true)
-		
+
 	}
 	render() {
 		const { userInfo } = this.props
@@ -41,7 +41,6 @@ export default class userTem extends Component {
 				<Menu.Item key='2'><span onClick={this.loginOut}>退出登录</span></Menu.Item>
 			</Menu>
 		)
-		console.log(this.props)
 		return (
 				<Dropdown
 					trigger={['click']}
@@ -53,7 +52,7 @@ export default class userTem extends Component {
 						<ShowHello warn={this.state.hello}/>
 					</div>
 				</Dropdown>
-				
+
 		)
 	}
 }

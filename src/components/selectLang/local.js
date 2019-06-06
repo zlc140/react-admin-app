@@ -1,17 +1,12 @@
 import  React, { Component } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import intl from 'react-intl-universal';
-import enUs from '../../locales/en-US.js'
-import zhCN from '../../locales/zh-CN.js'
-import zhTW from '../../locales/zh-TW.js'
-import ptBR from '../../locales/pt-BR.js'
-import headTem from "../tem/headTem";
 // locale data
 const locales = {
-	"en-US": enUs,
-	"zh-CN": zhCN,
-	"pt-BR" : ptBR,
-	"zh-TW": zhTW
+	"en-US": require('@/locales/en-US.js'),
+	"zh-CN": require('@/locales/zh-CN.js'),
+	"pt-BR" : require('@/locales/pt-BR.js'),
+	"zh-TW": require('@/locales/zh-TW.js')
 };
 
 class FormattedMessage extends Component {
@@ -37,9 +32,9 @@ class FormattedMessage extends Component {
 	// componentWillReceiveProps(){ //修改store之后数据总是迟一步
 	// 	this.loadLocales()
 	// }
-	componentDidUpdate() {
-		this.loadLocales()
-	}
+	// componentDidUpdate() { //语言这里不能通过生命周期来监听，正确的因该是直接刷新页面
+	// 	this.loadLocales()
+	// }
 	componentWillUnmount() {
 		this.setState = (state, callback) => {
 			return

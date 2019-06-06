@@ -3,51 +3,55 @@ import asyncComponent from './asyncComponent';
 import PrivateRoute from "./privateRoute";
 import {Switch} from "react-router";
 
+import example from './example'
+/**
+ * 数组转为map
+ * @param powerList
+ * @param key
+ * return {*}
+ */
+const getMap = (powerList, key) => {
+    let maps = {};
+    powerList && powerList.forEach(v => {
+        maps[v[key]] = v;
+        v.child && v.child.forEach(m => {
+            maps[m[key]] = m;
+        })
 
-const getFile = (sourcePath) => {
-    console.log(sourcePath,'sourcePath',)
-    return asyncComponent(() => import(`..${sourcePath}`))
+    })
+    return maps
 }
-const Blog = getFile('/page/Blog')
-const Home = getFile('/page/Home')
-console.log(Blog ,'---', asyncComponent(() => import('..'+'/page/Blog')))
+
+const userInfo = sessionStorage.getItem('userInfo')
+let powerList =  userInfo ? (JSON.parse(userInfo).routerLists || []) : false;
+if( !powerList ) window.location.href = window.location.origin + '/login';
+let routerMap = getMap(powerList, 'name');
+
+
+const Home = asyncComponent(() => import('..'+'/page/Home'));
+const Blog = asyncComponent(() => import('..'+'/page/Blog'));
+
+
+
+
 /***
  * 路由列表
  */
 
-const routeConf = [
+export const routeConf = [
     {
         name: '首页',
         path: '/home',
-        icon: '',
-        component: '/page/Home'
+        icon: 'home',
+        component: Home
     }
     ,{
         name: '博客页',
         path: '/blog',
-        icon: '',
-        component: '/page/Blog'
+        icon: 'frown',
+        component: Blog
     }
-    ,{
-        name: 'TODO',
-        path: '/todo',
-        icon: '',
-        component: '/page/Todo'
-    }
-    ,{
-        name: '文章',
-        path: '/article',
-        icon: '',
-        component: '/page/Article',
-        children: [
-            {
-                name: '博客页',
-                path: '/blog',
-                icon: '',
-                componentPath: '/page/Blog'
-            }
-        ]
-    }
+    , ...example
     ,{
         path: '/',
         redirect: '/home'
@@ -56,16 +60,39 @@ const routeConf = [
 
 ]
 
-let routerlist;
-const getRoutes = () => {
+/**
+ * 路由权限判断
+ * 1，接口放回的列表是否有 2.如果子存在父不存在则添加父
+ * @param item
+ * @param routerMap
+ * @returns {boolean}
+ */
+export const hasPower = (item) => {
 
-    return routeConf.map((item,index) => {
-        if(item.component){
-            let goPath = item.component;
-            return <PrivateRoute exact key={index} path={item.path} component={  asyncComponent(() => import(goPath)) }  />
-        }
+    let isHas = routerMap[item.name] ? true : false;
+    if(!isHas && item.child) {
+        isHas = item.child.some(m => {
+            return routerMap[m.name] ? true : false;
+        })
+    }
+    return isHas;
 
-    })
 }
 
-export default getRoutes()
+const getRouters = (routeConfs, baseUrl = '') => {
+    let routerLists = [];
+    routeConfs.map( item => {
+        let itemConf = Object.assign({}, item)
+        itemConf.path = baseUrl + itemConf.path;
+        if( itemConf.children && itemConf.children.length ){
+            routerLists = routerLists.concat( getRouters(itemConf.children, itemConf.path) )
+            delete itemConf.children
+        }
+        //权限中存在或者是redirect
+        (item.redirect || (itemConf.component && hasPower(item))) && routerLists.push( itemConf )
+    })
+    return routerLists;
+}
+
+// console.log(getRouters(routeConf))
+export default getRouters(routeConf)

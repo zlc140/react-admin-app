@@ -29,6 +29,7 @@ e section about [running tests](https://facebook.github.io/create-react-app/docs
     b. 搜索，是否选中 ==》 state
     c. 多个组件共有的数据 ==》 store
 
+2. react的上下文context如何使用
 
 ### render props 是指在react组件之间使用一个值为函数的prop共享代码的简单技术
 

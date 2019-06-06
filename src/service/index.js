@@ -10,9 +10,9 @@ let instance = axios.create({
 	// http://erp.tesm.lovego.xin/lovego
 	baseURL: '',
 	timeout: 2000,
-	// headers: {'X-Custom-Header': 'foobar'}
-	headers: {},
-	withCredentials: true
+	headers: {'X-Custom-Header': 'foobar'},
+	// headers: {},
+	withCredentials: false //是否跨域
 })
 
 
@@ -37,7 +37,7 @@ instance.interceptors.response.use(
 		return Promise.reject(error)
 	}
 )
-const TOKEN = sessionStorage.getItem('token')
+
 
 function sortBy(a, b) {
 	let A = a.trim().toUpperCase();
@@ -53,7 +53,7 @@ function sortBy(a, b) {
 
 export default function request(config){
 	const options = {}
-
+	let TOKEN = sessionStorage.getItem('token')
 	if(typeof config === 'string' && API[config]){
 		options.url = API[config] ? API[config].url : config;
 		options.type = API[config] ? API[config].type : 'get';
@@ -101,7 +101,7 @@ export default function request(config){
 
 	if((options.isToken === undefined || options.isToken === true) && !TOKEN){ //登录之后没有token或没有登录，登录失效
 		 console.log('请重新登录')
-		 window.location.href = window.location.origin + '/login'
+		 // window.location.href = window.location.origin + '/login'
 	}else if(TOKEN) {
 		instance.defaults.headers.common['sessionId'] = TOKEN;
 	}
@@ -116,7 +116,6 @@ export default function request(config){
 		case 'PATCH':
 			instance.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';
 			requestData.data = options.data;
-
 			break;
 		case 'FORM':
 			instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8'
@@ -137,10 +136,11 @@ export default function request(config){
 			// }]
 			break;
 	}
-	requestData.method = options.type
-	console.log(requestData,'requestData')
+	requestData.method = options.type;
+	console.log(requestData,'requestData');
 	return new Promise((resolve,reject) => {
-		instance(
+		//如果使用Mock数据必须直接使用axios才行，使用instance（axios的实例）是正常的请求
+		axios(
 			requestData
 		).then(response => {
 				resolve(response.data);

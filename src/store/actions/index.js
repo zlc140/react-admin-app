@@ -1,3 +1,5 @@
+import $service from '@service/index'
+
 let nextTodoId = 0;
 export const addTodo = text => ({
 	type: 'ADD_TODO',
@@ -20,19 +22,50 @@ export const toggleLanguages = key => ({
 	key
 })
 
-export const loginInfo = info => ({
-	type: 'SET_USER_INFO',
-	userInfo: info
-})
+export const loginInfo = info => {
+	sessionStorage.setItem('token',info)
+	return (dispath) => {
+		return new Promise((resolve, reject) => {
+			console.log(sessionStorage.getItem('token'),'token')
+			$service({
+				url:'/user/users/userInfo',
+				type: 'get'
+			}).then(res => {
+				if(res.data) {
+					dispath({
+						type: 'SET_USER_INFO',
+						userInfo: res.data
+					})
+					setTimeout(() => {
+						resolve(true)
+					})
+				}else{
+					reject(res.message)
+				}
+
+			}).catch(err => {
+				reject(err)
+			})
+		})
+
+	}
+}
 export const loginOut = (val) => ({
 	type: 'LOGIN_OUT',
 	val
 })
 
-export const toggleCollaped = value => ({
-	type: 'TOOGLE_COLLAPED',
-	value
-})
+export const toggleCollaped = value => {
+	return (dispatch) => {
+		setTimeout(() => {
+			dispatch({
+				type: 'TOOGLE_COLLAPED',
+				value
+			})
+		})
+
+	}
+}
 
 export const VisibilityFilters = {
 	SHOW_ALL: 'SHOW_ALL',

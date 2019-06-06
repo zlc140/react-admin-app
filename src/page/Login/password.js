@@ -8,7 +8,7 @@ class NomalLoginForm extends Component {
 		e.preventDefault();
 		this.props.form.validateFields((err, values) => {
 			if(!err) {
-				
+
 				let prop = {
 					accoutNo: values.username,
 					password: values.password
@@ -21,19 +21,18 @@ class NomalLoginForm extends Component {
 				}).then(res => {
 					console.log(res)
 					//登录成功
-					res.data.token && this.props.loginSubmit(res.data.user)
-					sessionStorage.setItem('token',res.data.token)
-					//跳转
-					setTimeout(() => {
+					res.data.token && this.props.loginSubmit(res.data.token).then(res => {
 						this.props.redirectPath();
+					}).catch(err => {
+						console.log(err)
 					})
 				}).catch(err => {
 					console.log(err,'e')
 				})
-				
-				
-				
-				
+
+
+
+
 			}
 		})
 	}
@@ -49,7 +48,7 @@ class NomalLoginForm extends Component {
 		if(!form.getFieldsValue('mobile')){
 			form.setFieldsValue({'password': ''})
 		}
-		
+
 	}
 	render() {
 		const { getFieldDecorator } = this.props.form;
@@ -65,7 +64,7 @@ class NomalLoginForm extends Component {
 							placeholder="手机号"
 							/>
 					)}
-					
+
 				</Form.Item>
 				<Form.Item>
 					{getFieldDecorator('password', {
@@ -76,7 +75,7 @@ class NomalLoginForm extends Component {
 						<Input prefix={<Icon type="user"  style={{ color: 'rgba(0,0,0,.25)' }} />}
 						       placeholder="密码" type="password"/>
 					)}
-					
+
 				</Form.Item>
 				<Form.Item>
 					<Button type="primary" htmlType="submit" className="login-form-button" style={style.Button}>
@@ -84,7 +83,7 @@ class NomalLoginForm extends Component {
 					</Button>
 				</Form.Item>
 			</Form>
-		
+
 		)
 	}
 }

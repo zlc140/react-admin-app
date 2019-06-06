@@ -5,6 +5,7 @@ import './index.less'
 import { Layout, notification, Icon } from 'antd';
 import HeaderCon from '../../components/header.js';
 import Nav from '../../components/nav';
+import BreadCrumb from '../../components/breadcrumb';
 
 import ContentMain from '../../router/index'
 const { Header, Content, Sider } = Layout
@@ -16,7 +17,7 @@ class App extends Component {
 			name: 'zhanglc'
 		}
 	}
-	
+
 	componentDidMount() {
 		this.initPage();
 	}
@@ -28,8 +29,9 @@ class App extends Component {
 		})
 	}
 	render() {
+		console.log('props', this.props)
 		return (
-			<div id='page' style={{height: '100%'}}>
+			<div id='page' style={{height: '100%',minHeight: '200px'}}>
 				<Layout style={{height: '100%'}}>
 					<Header style={{padding: '0'}}>
 						<HeaderCon userInfo={this.props.userInfo}/>
@@ -43,8 +45,11 @@ class App extends Component {
 							<div className="logo" />
 							<Nav />
 						</Sider>
-						<Content style={{margin:100,background:'#fff',borderRadius:8}}>
-							<div className='view-box'>
+						<Content>
+							<div style={{height: 70,paddingLeft: 25}}>
+								<BreadCrumb history={this.props.history} />
+							</div>
+							<div style={{background:'#fff',borderRadius:8,minHeight: '200px',padding: '0 25px'}} className='view-box'>
 								<ContentMain />
 							</div>
 						</Content>

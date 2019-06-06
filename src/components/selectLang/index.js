@@ -19,16 +19,23 @@ class SelectLang extends PureComponent {
 	}
 	changLang = ({ key }) => {
 		console.log(key,this.props)
-		this.setState({
-			type: key
-		})
-		this.props.toggleLanguages(key)
-		
+		if(key !== this.props.type) {
+			this.setState({
+				type: key
+			})
+			this.props.toggleLanguages(key)
+			window.location.reload();
+
+		}
+
+
+
+
 	};
-	
+
 	render() {
 		const { className, } = this.props;
-		
+
 		const langMenu = (
 			<Menu className={styles.menu} selectedKeys={[this.state.type]} onClick={this.changLang}>
 				<Menu.Item key="zh-CN">

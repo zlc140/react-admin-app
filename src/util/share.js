@@ -28,10 +28,10 @@ function goodsImg(src) {
  */
 export default (that, shareObj = {}, successFunc, cancelFunc, failFunc) => {
   shareObj = {
-    shareTitle: shareObj.shareTitle || '乐富购商城',
-    shareUrl: shareObj.shareUrl || location.href || 'http://mobile.tesm.lovego.xin',
-    shareImg: goodsImg(shareObj.shareImg || 'http://mobile.tesm.lovego.xin/static/img/logo.5dd8315.png'),
-    shareDesc: shareObj.shareDesc || '乐富购 - 一个越买越便宜的电商平台',
+    shareTitle: shareObj.shareTitle ,
+    shareUrl: shareObj.shareUrl || location.href ,
+    shareImg: goodsImg(shareObj.shareImg,
+    shareDesc: shareObj.shareDesc,
   }
   let mobile = userStore.state.userInfo ? userStore.state.userInfo.mobile : null;
   //alert(JSON.stringify(shareObj))
