@@ -13,6 +13,8 @@ e section about [running tests](https://facebook.github.io/create-react-app/docs
 
 ### `npm run eject`
 
+### 'npm run deploy'
+添加gh-pages发布
 
 ::: tip
     React-create-app （创建项目）
