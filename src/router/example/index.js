@@ -3,6 +3,7 @@ import asyncComponent from "../asyncComponent";
 const Todo = asyncComponent(() => import('@/page/Todo'));
 const Article = asyncComponent(() => import('@/page/Article'));
 const RenderProp = asyncComponent(() => import('@/page/Article/RenderProp'));
+const StateProvance = asyncComponent(() => import('@/page/Article/stateProvance'));
 export default [
     {
         name: '例子管理',
@@ -27,6 +28,13 @@ export default [
                 path: '/RenderProp',
                 icon: 'filter',
                 component: RenderProp,
+            },
+            {
+                // isMenu: false,
+                name: '状态提升',
+                path: '/stateProvance',
+                icon: 'filter',
+                component: StateProvance,
             }
         ]
     }

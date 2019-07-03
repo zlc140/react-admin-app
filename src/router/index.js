@@ -1,5 +1,5 @@
 import 'babel-polyfill';
-import React from 'react';
+import React, { Suspense } from 'react';
 import {Redirect, Switch} from 'react-router-dom';
 import routeConf from './routeConf';
 
@@ -10,7 +10,7 @@ export default class Router extends React.Component {
 
 	render() {
 		return (
-
+			<Suspense fallback={<div>Loading...</div>}>
 				<Switch>
 					{
 						routeConf.map(ele => {
@@ -22,7 +22,7 @@ export default class Router extends React.Component {
 					}
 					{/*<Redirect to={{pathname: '/home'}} />*/}
 				</Switch>
-
+			</Suspense>
 		);
 	}
 }

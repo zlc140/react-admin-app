@@ -38,7 +38,7 @@ class Login extends Component {
 		this.initPage()
 	}
 	componentWillUnmount() {
-		this.particle.destory()
+		this.particle && this.particle.destory()
 	}
 
 	initPage = () => {
