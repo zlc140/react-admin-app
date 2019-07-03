@@ -32,7 +32,7 @@ Mock.bootstrap()
 // 	}
 // }
 ReactDOM.render(
-	<BrowserRouter>
+	<BrowserRouter basename='/react-admin-app/'>
 		<App />
 	</BrowserRouter>
 	, document.getElementById('root'));
