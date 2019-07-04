@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "bf12f4d02707dff1e1b8",
-    "url": "/react-admin-app/static/js/8.94e7ad5b.chunk.js"
+    "revision": "cad9d22d866fe7d1d456",
+    "url": "/react-admin-app/static/js/8.f2e020a6.chunk.js"
   },
   {
-    "revision": "f604cf696eb9dcd59021",
-    "url": "/react-admin-app/static/js/0.43605406.chunk.js"
+    "revision": "a72b4cbb33894e0ea63b",
+    "url": "/react-admin-app/static/js/0.63e5406d.chunk.js"
   },
   {
     "revision": "44dc3bc6a8095742e270",
@@ -16,16 +16,16 @@ self.__precacheManifest = [
     "url": "/react-admin-app/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "a8b0ca776190ee817d51",
-    "url": "/react-admin-app/static/js/main.8e12e396.chunk.js"
+    "revision": "0acf5634ee5416368d8e",
+    "url": "/react-admin-app/static/js/main.35dc949d.chunk.js"
   },
   {
-    "revision": "64b5d61064c3ad22c8b5",
-    "url": "/react-admin-app/static/js/runtime~main.f5d5f387.js"
+    "revision": "6d19dad4cbf5ed82a4e9",
+    "url": "/react-admin-app/static/js/runtime~main.fd4e9f30.js"
   },
   {
-    "revision": "1a895ef9be3092833b7e",
-    "url": "/react-admin-app/static/js/5.c76119e4.chunk.js"
+    "revision": "67565eb175e6d96a8bec",
+    "url": "/react-admin-app/static/js/5.1e6a37db.chunk.js"
   },
   {
     "revision": "f076e388a63981e2a15c",
@@ -40,8 +40,8 @@ self.__precacheManifest = [
     "url": "/react-admin-app/static/js/15.eb882698.chunk.js"
   },
   {
-    "revision": "d8cc3f258dd5053c4a25",
-    "url": "/react-admin-app/static/js/7.a8c8a0bc.chunk.js"
+    "revision": "49ed892f60163d9f7a9c",
+    "url": "/react-admin-app/static/js/7.12e2c437.chunk.js"
   },
   {
     "revision": "fc1c68d2471a267bdb03",
@@ -72,11 +72,11 @@ self.__precacheManifest = [
     "url": "/react-admin-app/static/js/14.114cce2b.chunk.js"
   },
   {
-    "revision": "a8b0ca776190ee817d51",
+    "revision": "0acf5634ee5416368d8e",
     "url": "/react-admin-app/static/css/main.179e5f2a.chunk.css"
   },
   {
-    "revision": "d8cc3f258dd5053c4a25",
+    "revision": "49ed892f60163d9f7a9c",
     "url": "/react-admin-app/static/css/7.dcbd5c95.chunk.css"
   },
   {
@@ -84,7 +84,7 @@ self.__precacheManifest = [
     "url": "/react-admin-app/static/css/6.7bbb1312.chunk.css"
   },
   {
-    "revision": "0e1691f495629fab37642150aa5027fe",
+    "revision": "42e150cf5f76c7ed44b406b91f9ebd60",
     "url": "/react-admin-app/index.html"
   }
 ];
