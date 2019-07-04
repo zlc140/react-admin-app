@@ -35,8 +35,8 @@ export default class Home extends Component {
 	}
 	componentDidMount() {
 		this.setState({
-			pageTitle: '博客页',
-			pageDes: '这是学习react 得 博客页'
+			pageTitle: '时间管理',
+			pageDes: '这是学习react 得 时间管理'
 		})
 		this.timerID = setInterval(() => {
 			// this.tick()
@@ -55,14 +55,14 @@ export default class Home extends Component {
 			<div className='blog-container'>
 				<h2>{this.state.pageTitle}-<FormatDate  date={this.state.date}/></h2>
 				<p>{this.state.pageDes}</p>
-				
+
 				<ThemeContext.Provider value={this.state.theme}>
 					<Toolbar changeTheme={this.toggleTheme} />
 				</ThemeContext.Provider>
-				
+
 				{/*<ThemedButton />*/}
-				
-				
+
+
 			</div>
 		)
 	}

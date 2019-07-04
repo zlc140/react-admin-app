@@ -2,6 +2,7 @@ import React from "react";
 import asyncComponent from './asyncComponent';
 import PrivateRoute from "./privateRoute";
 import {Switch} from "react-router";
+import { createHashHistory } from 'history'
 
 import example from './example'
 /**
@@ -24,7 +25,7 @@ const getMap = (powerList, key) => {
 
 const userInfo = sessionStorage.getItem('userInfo')
 let powerList =  userInfo ? (JSON.parse(userInfo).routerLists || []) : false;
-if( !powerList ) window.location.href = window.location.origin + '/login';
+// if( !powerList ) window.location.href = window.location.origin + '/login';
 let routerMap = getMap(powerList, 'name');
 
 
@@ -46,7 +47,7 @@ export const routeConf = [
         component: Home
     }
     ,{
-        name: '博客页',
+        name: '时间管理',
         path: '/blog',
         icon: 'frown',
         component: Blog

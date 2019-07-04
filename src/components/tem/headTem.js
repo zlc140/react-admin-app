@@ -3,6 +3,7 @@ import logo from '../../logo.svg';
 import { Icon } from 'antd';
 import  UserInfo  from './userInfo';
 import SelectLang from '../selectLang';
+import { createHashHistory } from 'history'
 
 export default class Header extends Component {
 	constructor(props) {
@@ -15,9 +16,10 @@ export default class Header extends Component {
 	render() {
 
 		const { collaped , userInfo, loginOut, islogin, languages, toggleLanguages,history } = this.props
-		console.log('history',history)
+		// console.log('history',history)
 		if(!islogin){
-			window.location.href = window.location.origin + '/login'
+			createHashHistory().push('/login')
+			// window.location.href = window.location.origin + '/react-admin-app/login'
 		}
 
 		return (

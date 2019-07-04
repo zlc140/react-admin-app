@@ -6,6 +6,7 @@ import { Layout, notification, Icon } from 'antd';
 import HeaderCon from '../../components/header.js';
 import Nav from '../../components/nav';
 import BreadCrumb from '../../components/breadcrumb';
+import { createHashHistory } from 'history'
 
 import ContentMain from '../../router/index'
 const { Header, Content, Sider } = Layout
@@ -22,6 +23,10 @@ class App extends Component {
 		this.initPage();
 	}
 	initPage() {
+		if(!this.props.userInfo) {
+			createHashHistory().push('/login')
+			return;
+		}
 		notification.open({
 			message: 'Welcome',
 			description: `${this.props.userInfo.username},欢迎您回来`,

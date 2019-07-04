@@ -10,7 +10,7 @@ export default class Router extends React.Component {
 
 	render() {
 		return (
-			<Suspense fallback={<div>Loading...</div>}>
+
 				<Switch>
 					{
 						routeConf.map(ele => {
@@ -22,7 +22,6 @@ export default class Router extends React.Component {
 					}
 					{/*<Redirect to={{pathname: '/home'}} />*/}
 				</Switch>
-			</Suspense>
 		);
 	}
 }

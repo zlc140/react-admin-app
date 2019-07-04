@@ -11,7 +11,7 @@ let _addressList = addressList
 let routerLists = {
 	'admin': [
 		{"name":"首页","path":"/home","icon":"home"},
-		{"name":"博客页","path":"/blog","icon":"frown"},
+		{"name":"时间管理","path":"/blog","icon":"frown"},
 		{"name":"富文本编辑","path":"/article","icon":"bars"},
 		{"name":"TODO例子","path":"/article/todo","icon":"diff"},
 		{"name":"RenderProp","path":"/article/RenderProp","icon":"filter"},
@@ -19,7 +19,7 @@ let routerLists = {
 	],
 	'guest': [
 		{"name":"首页","path":"/home","icon":"home"},
-		{"name":"博客页","path":"/blog","icon":"frown"},
+		{"name":"时间管理","path":"/blog","icon":"frown"},
 		{"name":"富文本编辑","path":"/article","icon":"bars"}
 	]
 }
