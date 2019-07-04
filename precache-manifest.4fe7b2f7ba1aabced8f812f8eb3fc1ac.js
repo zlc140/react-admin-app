@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "9b7457cabd0536b754a8",
-    "url": "/react-admin-app/static/js/8.9d4fa02c.chunk.js"
+    "revision": "bf12f4d02707dff1e1b8",
+    "url": "/react-admin-app/static/js/8.94e7ad5b.chunk.js"
   },
   {
-    "revision": "16f388e63f9de283d31c",
-    "url": "/react-admin-app/static/js/0.8e2c4932.chunk.js"
+    "revision": "f604cf696eb9dcd59021",
+    "url": "/react-admin-app/static/js/0.43605406.chunk.js"
   },
   {
     "revision": "44dc3bc6a8095742e270",
@@ -16,16 +16,16 @@ self.__precacheManifest = [
     "url": "/react-admin-app/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "cc4761195f17b93efef0",
-    "url": "/react-admin-app/static/js/main.14f69b9d.chunk.js"
+    "revision": "a8b0ca776190ee817d51",
+    "url": "/react-admin-app/static/js/main.8e12e396.chunk.js"
   },
   {
-    "revision": "2700dfff9737d30f4517",
-    "url": "/react-admin-app/static/js/runtime~main.63be53f4.js"
+    "revision": "64b5d61064c3ad22c8b5",
+    "url": "/react-admin-app/static/js/runtime~main.f5d5f387.js"
   },
   {
-    "revision": "cc17e1cbe8aef8d94bbd",
-    "url": "/react-admin-app/static/js/5.12fcc39b.chunk.js"
+    "revision": "1a895ef9be3092833b7e",
+    "url": "/react-admin-app/static/js/5.c76119e4.chunk.js"
   },
   {
     "revision": "f076e388a63981e2a15c",
@@ -40,12 +40,12 @@ self.__precacheManifest = [
     "url": "/react-admin-app/static/js/15.eb882698.chunk.js"
   },
   {
-    "revision": "3edeb8934515ee72cc2f",
-    "url": "/react-admin-app/static/js/7.128817f1.chunk.js"
+    "revision": "d8cc3f258dd5053c4a25",
+    "url": "/react-admin-app/static/js/7.a8c8a0bc.chunk.js"
   },
   {
-    "revision": "6ffbdb997f6640d151cf",
-    "url": "/react-admin-app/static/js/1.ab540289.chunk.js"
+    "revision": "fc1c68d2471a267bdb03",
+    "url": "/react-admin-app/static/js/1.99e7aee5.chunk.js"
   },
   {
     "revision": "cd281bf6860651992585",
@@ -56,8 +56,8 @@ self.__precacheManifest = [
     "url": "/react-admin-app/static/js/10.ccbade7b.chunk.js"
   },
   {
-    "revision": "1d07ff751ab8d943a8cd",
-    "url": "/react-admin-app/static/js/11.80b89d51.chunk.js"
+    "revision": "fffa0bf538a84246ed6a",
+    "url": "/react-admin-app/static/js/11.3a03a25d.chunk.js"
   },
   {
     "revision": "2426c352c3116715b16f",
@@ -68,15 +68,15 @@ self.__precacheManifest = [
     "url": "/react-admin-app/static/js/13.60d362e1.chunk.js"
   },
   {
-    "revision": "cf60b228e54b6c2fbac3",
-    "url": "/react-admin-app/static/js/14.e3fee9c8.chunk.js"
+    "revision": "50dd50bad9e445e55849",
+    "url": "/react-admin-app/static/js/14.114cce2b.chunk.js"
   },
   {
-    "revision": "cc4761195f17b93efef0",
+    "revision": "a8b0ca776190ee817d51",
     "url": "/react-admin-app/static/css/main.179e5f2a.chunk.css"
   },
   {
-    "revision": "3edeb8934515ee72cc2f",
+    "revision": "d8cc3f258dd5053c4a25",
     "url": "/react-admin-app/static/css/7.dcbd5c95.chunk.css"
   },
   {
@@ -84,7 +84,7 @@ self.__precacheManifest = [
     "url": "/react-admin-app/static/css/6.7bbb1312.chunk.css"
   },
   {
-    "revision": "068b7c6c3314b4cd2e54f4d834d88bae",
+    "revision": "0e1691f495629fab37642150aa5027fe",
     "url": "/react-admin-app/index.html"
   }
 ];
