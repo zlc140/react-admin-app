@@ -64,7 +64,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-app-polyfill": "^0.2.2",
-    "react-dev-utils": "^8.0.0",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.8.4",
     "react-intl": "^2.8.0",
     "react-intl-universal": "^1.15.5",
